@@ -16,8 +16,10 @@ namespace PiNet.Console
             using (var manager = new PinManager())
             {
                 manager.Export(Pin.PinType.GPIO18);
+                manager.UnExport(Pin.PinType.GPIO18);
+                manager.Export(Pin.PinType.GPIO18);
                 manager.Write(Pin.PinType.GPIO18, true);
-                Thread.Sleep(TimeSpan.FromSeconds(5));
+                manager.UnExport(Pin.PinType.GPIO18);
             }
 
         }
