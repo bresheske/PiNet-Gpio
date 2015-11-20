@@ -60,9 +60,18 @@ namespace PiNet.Gpio
 
             var full = proc.StartInfo.FileName + " " + proc.StartInfo.Arguments;
             Console.WriteLine("Executing: " + full);
-
+            
             proc.Start();
             proc.WaitForExit();
+
+            Console.WriteLine("Current LS:");
+            var ls = new System.Diagnostics.Process();
+            ls.EnableRaisingEvents = true;
+            ls.StartInfo.FileName = "ls";
+            ls.StartInfo.Arguments = "/sys/class/gpio";
+            ls.Start();
+            ls.WaitForExit();
+
         }
 
 
