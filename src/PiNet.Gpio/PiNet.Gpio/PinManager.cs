@@ -57,6 +57,10 @@ namespace PiNet.Gpio
             proc.EnableRaisingEvents = false;
             proc.StartInfo.FileName = "/bin/bash";
             proc.StartInfo.Arguments = "-c " + command;
+
+            var full = proc.StartInfo.FileName + " " + proc.StartInfo.Arguments;
+            Console.WriteLine("Executing: " + full);
+
             proc.Start();
             proc.WaitForExit();
         }
