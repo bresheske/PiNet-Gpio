@@ -21,7 +21,7 @@ namespace PiNet.Gpio
         {
             if (_activepins.Contains(pin))
                 return;
-            var command = string.Format("echo {0} > {1}export", pin.ToString().Substring(4), GPIO_FOLDER);
+            var command = string.Format("{0} > {1}export", pin.ToString().Substring(4), GPIO_FOLDER);
             Execute(command);
             _activepins.Add(pin);
         }
@@ -30,7 +30,7 @@ namespace PiNet.Gpio
         {
             if (!_activepins.Contains(pin))
                 return;
-            var command = string.Format("echo {0} > {1}unexport", pin.ToString().Substring(4), GPIO_FOLDER);
+            var command = string.Format("{0} > {1}unexport", pin.ToString().Substring(4), GPIO_FOLDER);
             Execute(command);
             _activepins.Remove(pin);
         }
@@ -40,9 +40,9 @@ namespace PiNet.Gpio
             if (!_activepins.Contains(pin))
                 return;
             var val = on ? 1 : 0;
-            var command = string.Format("echo \"out\" > {0}gpio{1}/direction", GPIO_FOLDER, pin.ToString().Substring(4));
+            var command = string.Format("\"out\" > {0}gpio{1}/direction", GPIO_FOLDER, pin.ToString().Substring(4));
             Execute(command);
-            command = string.Format("echo {0} > {1}gpio{2}/value", val, GPIO_FOLDER, pin.ToString().Substring(4));
+            command = string.Format("{0} > {1}gpio{2}/value", val, GPIO_FOLDER, pin.ToString().Substring(4));
             Execute(command);
         }
 
@@ -55,8 +55,8 @@ namespace PiNet.Gpio
         {
             var proc = new System.Diagnostics.Process();
             proc.EnableRaisingEvents = false;
-            proc.StartInfo.FileName = "/bin/bash";
-            proc.StartInfo.Arguments = "-c " + command;
+            proc.StartInfo.FileName = "echo";
+            proc.StartInfo.Arguments = command;
 
             var full = proc.StartInfo.FileName + " " + proc.StartInfo.Arguments;
             Console.WriteLine("Executing: " + full);
