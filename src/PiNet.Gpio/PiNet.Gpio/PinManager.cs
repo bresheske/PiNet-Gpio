@@ -54,7 +54,8 @@ namespace PiNet.Gpio
 
         private void Execute(string folder, string text)
         {
-            Console.WriteLine("Executing: " + text);
+            Console.WriteLine("Executing: " + folder + ":"+ text);
+            Console.ReadLine();
             File.WriteAllText(folder, text);
 
             Console.WriteLine("Current LS:");
