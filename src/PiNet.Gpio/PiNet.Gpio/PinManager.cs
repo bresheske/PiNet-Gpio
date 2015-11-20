@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,8 +22,8 @@ namespace PiNet.Gpio
         {
             if (_activepins.Contains(pin))
                 return;
-            var command = string.Format("{0} > {1}export", pin.ToString().Substring(4), GPIO_FOLDER);
-            Execute(command);
+            var folder = string.Format("{1}export", GPIO_FOLDER);
+            Execute(folder, pin.ToString().Substring(4));
             _activepins.Add(pin);
         }
 
@@ -30,8 +31,8 @@ namespace PiNet.Gpio
         {
             if (!_activepins.Contains(pin))
                 return;
-            var command = string.Format("{0} > {1}unexport", pin.ToString().Substring(4), GPIO_FOLDER);
-            Execute(command);
+            var folder = string.Format("{0}unexport", GPIO_FOLDER);
+            Execute(folder, pin.ToString().Substring(4));
             _activepins.Remove(pin);
         }
 
@@ -40,10 +41,10 @@ namespace PiNet.Gpio
             if (!_activepins.Contains(pin))
                 return;
             var val = on ? 1 : 0;
-            var command = string.Format("\"out\" > {0}gpio{1}/direction", GPIO_FOLDER, pin.ToString().Substring(4));
-            Execute(command);
-            command = string.Format("{0} > {1}gpio{2}/value", val, GPIO_FOLDER, pin.ToString().Substring(4));
-            Execute(command);
+            var folder = string.Format("{0}gpio{1}/direction", GPIO_FOLDER, pin.ToString().Substring(4));
+            Execute(folder, "\"out\"");
+            folder = string.Format("{0} > {1}gpio{2}/value", val, GPIO_FOLDER, pin.ToString().Substring(4));
+            Execute(folder, val.ToString());
         }
 
         public bool Read(Pin.PinType pin)
@@ -51,18 +52,10 @@ namespace PiNet.Gpio
             return false;
         }
 
-        private void Execute(string command)
+        private void Execute(string folder, string text)
         {
-            var proc = new System.Diagnostics.Process();
-            proc.EnableRaisingEvents = false;
-            proc.StartInfo.FileName = "echo";
-            proc.StartInfo.Arguments = "echo " + command;
-
-            var full = proc.StartInfo.FileName + " " + proc.StartInfo.Arguments;
-            Console.WriteLine("Executing: " + full);
-            
-            proc.Start();
-            proc.WaitForExit();
+            Console.WriteLine("Executing: " + text);
+            File.WriteAllText(folder, text);
 
             Console.WriteLine("Current LS:");
             var ls = new System.Diagnostics.Process();
