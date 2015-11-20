@@ -54,18 +54,7 @@ namespace PiNet.Gpio
 
         private void Execute(string folder, string text)
         {
-            Console.WriteLine("Executing: " + folder + ":"+ text);
-            Console.ReadLine();
             File.WriteAllText(folder, text);
-
-            Console.WriteLine("Current LS:");
-            var ls = new System.Diagnostics.Process();
-            ls.EnableRaisingEvents = true;
-            ls.StartInfo.FileName = "ls";
-            ls.StartInfo.Arguments = "/sys/class/gpio";
-            ls.Start();
-            ls.WaitForExit();
-
         }
 
 
