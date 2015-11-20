@@ -56,7 +56,7 @@ namespace PiNet.Gpio
             var proc = new System.Diagnostics.Process();
             proc.EnableRaisingEvents = false;
             proc.StartInfo.FileName = "echo";
-            proc.StartInfo.Arguments = command;
+            proc.StartInfo.Arguments = "echo " + command;
 
             var full = proc.StartInfo.FileName + " " + proc.StartInfo.Arguments;
             Console.WriteLine("Executing: " + full);
