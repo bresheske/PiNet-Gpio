@@ -42,7 +42,7 @@ namespace PiNet.Gpio
                 return;
             var val = on ? 1 : 0;
             var folder = string.Format("{0}gpio{1}/direction", GPIO_FOLDER, pin.ToString().Substring(4));
-            Execute(folder, "\"out\"");
+            Execute(folder, "out");
             folder = string.Format("{0} > {1}gpio{2}/value", val, GPIO_FOLDER, pin.ToString().Substring(4));
             Execute(folder, val.ToString());
         }
