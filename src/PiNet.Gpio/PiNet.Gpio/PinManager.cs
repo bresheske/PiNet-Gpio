@@ -22,7 +22,7 @@ namespace PiNet.Gpio
         {
             if (_activepins.Contains(pin))
                 return;
-            var folder = string.Format("{1}export", GPIO_FOLDER);
+            var folder = string.Format("{0}export", GPIO_FOLDER);
             Execute(folder, pin.ToString().Substring(4));
             _activepins.Add(pin);
         }
