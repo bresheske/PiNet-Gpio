@@ -52,6 +52,13 @@ namespace PiNet.Gpio
             return false;
         }
 
+        public void CleanAll()
+        {
+            var allpins = Enum.GetValues(typeof(PinType));
+            foreach (var pin in allpins)
+                UnExport(((PinType)pin));
+        }
+
         private void Execute(string folder, string text)
         {
             File.WriteAllText(folder, text);
