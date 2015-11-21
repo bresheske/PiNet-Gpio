@@ -58,6 +58,7 @@ namespace PiNet.Console
             System.Console.WriteLine("  e <PinID>: Exports a Pin.");
             System.Console.WriteLine("  u <PinID>: UnExports a Pin.");
             System.Console.WriteLine("  w <PinID> <1/0>: Writes a value to a Pin. 1 or 0 values allowed.");
+            System.Console.WriteLine("  c: Cleans all pins for this session.");
         }
 
         public static void ExportPin(PinManager manager, string command)
