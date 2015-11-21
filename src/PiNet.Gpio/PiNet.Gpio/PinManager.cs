@@ -11,14 +11,14 @@ namespace PiNet.Gpio
     {
         private string GPIO_FOLDER = "/sys/class/gpio/";
 
-        private readonly IList<Pin.PinType> _activepins;
+        private readonly IList<PinType> _activepins;
 
         public PinManager()
         {
-            _activepins = new List<Pin.PinType>();
+            _activepins = new List<PinType>();
         }
 
-        public void Export(Pin.PinType pin)
+        public void Export(PinType pin)
         {
             if (_activepins.Contains(pin))
                 return;
@@ -27,7 +27,7 @@ namespace PiNet.Gpio
             _activepins.Add(pin);
         }
 
-        public void UnExport(Pin.PinType pin)
+        public void UnExport(PinType pin)
         {
             if (!_activepins.Contains(pin))
                 return;
@@ -36,7 +36,7 @@ namespace PiNet.Gpio
             _activepins.Remove(pin);
         }
 
-        public void Write(Pin.PinType pin, bool on)
+        public void Write(PinType pin, bool on)
         {
             if (!_activepins.Contains(pin))
                 return;
@@ -47,7 +47,7 @@ namespace PiNet.Gpio
             Execute(folder, val.ToString());
         }
 
-        public bool Read(Pin.PinType pin)
+        public bool Read(PinType pin)
         {
             return false;
         }
@@ -57,16 +57,17 @@ namespace PiNet.Gpio
             File.WriteAllText(folder, text);
         }
 
-
-
-
-
         public void Dispose()
         {
-            foreach(var pin in _activepins)
-            {
+            // Copy the pins to another collection.
+            var pins = new PinType[_activepins.Count];
+            _activepins.CopyTo(pins, 0);
+
+            // Unexport all of the current used pins.
+            foreach (var pin in pins)
                 UnExport(pin);
-            }
+            
+            // At this point, _activepins is empty.
         }
     }
 }

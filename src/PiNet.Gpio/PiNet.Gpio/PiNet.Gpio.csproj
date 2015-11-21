@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pin.cs" />
+    <Compile Include="PinType.cs" />
     <Compile Include="PinManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

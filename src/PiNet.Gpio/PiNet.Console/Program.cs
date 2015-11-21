@@ -13,12 +13,13 @@ namespace PiNet.Console
         public static void Main(string[] args)
         {
 
-            var manager = new PinManager();
-            manager.Export(Pin.PinType.GPIO18);
-            manager.Write(Pin.PinType.GPIO18, false);
-            Thread.Sleep(TimeSpan.FromSeconds(5));
-            manager.UnExport(Pin.PinType.GPIO18);
-
+            using (var manager = new PinManager())
+            {
+                manager.Export(PinType.GPIO18);
+                manager.Write(PinType.GPIO18, false);
+                Thread.Sleep(TimeSpan.FromSeconds(5));
+                //manager.UnExport(PinType.GPIO18);
+            }
         }
     }
 }
