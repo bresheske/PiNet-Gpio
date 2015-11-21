@@ -43,11 +43,6 @@ namespace PiNet.Console
                 {
 
                 }
-
-
-                manager.Export(PinType.GPIO18);
-                manager.Write(PinType.GPIO18, false);
-                Thread.Sleep(TimeSpan.FromSeconds(5));
             }
         }
 
