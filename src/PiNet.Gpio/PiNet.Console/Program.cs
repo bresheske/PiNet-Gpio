@@ -36,6 +36,8 @@ namespace PiNet.Console
                             WritePin(manager, command);
                         else if (commandtype == "c")
                             CleanAll(manager);
+                        else if (commandtype == "p")
+                            Pause(command);
 
                     }
                 }
@@ -54,6 +56,18 @@ namespace PiNet.Console
             System.Console.WriteLine("  u <PinID>: UnExports a Pin.");
             System.Console.WriteLine("  w <PinID> <1/0>: Writes a value to a Pin. 1 or 0 values allowed.");
             System.Console.WriteLine("  c: Cleans all pins for this session.");
+            System.Console.WriteLine("  p <millis>: Pauses input for millis (for file-based input).");
+        }
+
+        public static void Pause(string command)
+        {
+            var split = command.Split();
+            if (split.Count() != 2)
+                return;
+            int millis;
+            if (!int.TryParse(split[1], out millis))
+                return;
+            Thread.Sleep(millis);
         }
 
         public static void ExportPin(PinManager manager, string command)
