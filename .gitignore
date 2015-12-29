@@ -7,7 +7,6 @@
 
 x64/
 build/
-[Oo]bj/
 
 # NuGet Packages
 *.nupkg
@@ -26,7 +25,6 @@ build/
 *_p.c
 *.ilk
 *.meta
-*.obj
 *.pch
 *.pdb
 *.pgc

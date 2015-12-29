@@ -1,0 +1,8 @@
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Console\bin\Debug\PiNet.Console.exe.config
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Console\bin\Debug\PiNet.Console.exe
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Console\bin\Debug\PiNet.Console.pdb
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Console\obj\Debug\PiNet.Console.csprojResolveAssemblyReference.cache
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Console\obj\Debug\PiNet.Console.exe
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Console\obj\Debug\PiNet.Console.pdb
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Console\bin\Debug\PiNet.Gpio.dll
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Console\bin\Debug\PiNet.Gpio.pdb
