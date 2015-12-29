@@ -116,6 +116,12 @@
     <Folder Include="Models\" />
     <Folder Include="Views\Gpio\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PiNet.Gpio\PiNet.Gpio.csproj">
+      <Project>{6fe7562e-95c3-4133-a55f-70e08074cd73}</Project>
+      <Name>PiNet.Gpio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

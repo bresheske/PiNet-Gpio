@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace PiNet.Gpio
 {
+    public enum PinStatus
+    {
+        UnExported,
+        True,
+        False
+    }
+
     public enum PinType
     {
         // Left pins (3.3v DC Side)

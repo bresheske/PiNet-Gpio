@@ -47,9 +47,23 @@ namespace PiNet.Gpio
             Execute(folder, val.ToString());
         }
 
-        public bool Read(PinType pin)
+        public PinStatus Read(PinType pin)
         {
-            return false;
+            var folder = string.Format("{0}gpio{1}/value", GPIO_FOLDER, pin.ToString().Substring(4));
+            PinStatus response;
+            try
+            {
+                var data = File.ReadAllText(folder);
+                response = data == "0"
+                    ? PinStatus.False
+                    : PinStatus.True;
+            }
+            catch
+            {
+                response = PinStatus.UnExported;
+            }
+
+            return response;
         }
 
         public void CleanAll()

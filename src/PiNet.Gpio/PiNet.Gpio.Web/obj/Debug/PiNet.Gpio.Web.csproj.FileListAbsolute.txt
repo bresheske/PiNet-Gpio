@@ -31,3 +31,5 @@ C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\System.Web.Mvc.xml
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\obj\Debug\PiNet.Gpio.Web.csprojResolveAssemblyReference.cache
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\obj\Debug\PiNet.Gpio.Web.dll
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\obj\Debug\PiNet.Gpio.Web.pdb
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\PiNet.Gpio.dll
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\PiNet.Gpio.pdb

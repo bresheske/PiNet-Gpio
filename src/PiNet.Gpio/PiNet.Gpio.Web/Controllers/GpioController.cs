@@ -11,7 +11,19 @@ namespace PiNet.Gpio.Web.Controllers
 
         public ActionResult Index()
         {
-            return Json(new { something = "foreveryone" }, JsonRequestBehavior.AllowGet);
+            using (var manager = new PinManager())
+            {
+                var pins = new
+                {
+                    pins = new []
+                    {
+                        new { id = 18, status = manager.Read(PinType.GPIO18) },
+                        new { id = 23, status = manager.Read(PinType.GPIO23) },
+                    }
+                };
+
+                return Json(pins, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }
