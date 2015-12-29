@@ -17,8 +17,8 @@ namespace PiNet.Gpio.Web.Controllers
                 {
                     pins = new []
                     {
-                        new { id = 18, status = manager.Read(PinType.GPIO18) },
-                        new { id = 23, status = manager.Read(PinType.GPIO23) },
+                        new { id = 18, status = manager.Read(PinType.GPIO18).ToString() },
+                        new { id = 23, status = manager.Read(PinType.GPIO23).ToString() },
                     }
                 };
 
