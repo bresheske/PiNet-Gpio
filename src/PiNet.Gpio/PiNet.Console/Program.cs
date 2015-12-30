@@ -14,10 +14,10 @@ namespace PiNet.Console
         {
             using (var manager = new PinManager())
             {
-                try
+                System.Console.WriteLine("Press 'h' for help.");
+                while (true)
                 {
-                    System.Console.WriteLine("Press 'h' for help.");
-                    while (true)
+                    try
                     {
                         var command = System.Console.ReadLine();
                         var commandsplit = command.Split();
@@ -41,10 +41,10 @@ namespace PiNet.Console
                         else if (commandtype == "r")
                             Read(manager, command);
                     }
-                }
-                catch (Exception ex)
-                {
-                    System.Console.WriteLine($"Error: {ex.Message}");
+                    catch (Exception ex)
+                    {
+                        System.Console.WriteLine($"Error: {ex.Message}");
+                    }
                 }
             }
         }
