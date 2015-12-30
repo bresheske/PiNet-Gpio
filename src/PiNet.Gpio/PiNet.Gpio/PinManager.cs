@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -75,8 +76,13 @@ namespace PiNet.Gpio
 
         private void Execute(string folder, string text)
         {
-            Console.WriteLine("Executing:'{0}', '{1}'", folder, text);
-            File.WriteAllText(folder, text);
+            var proc = new Process();
+            proc.EnableRaisingEvents = false;
+            proc.StartInfo.FileName = "echo";
+            proc.StartInfo.Arguments = $"{text} > {folder}";
+            Console.WriteLine($"Executing: {proc.StartInfo.FileName} {proc.StartInfo.Arguments}");
+            proc.Start();
+            proc.WaitForExit();
         }
 
         public void Dispose()
