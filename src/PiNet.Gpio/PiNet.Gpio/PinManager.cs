@@ -53,7 +53,7 @@ namespace PiNet.Gpio
             PinStatus response;
             try
             {
-                var data = File.ReadAllText(folder);
+                var data = File.ReadAllText(folder).Trim();
                 System.Console.WriteLine("DATA:'{0}'", data);
                 response = data == "0"
                     ? PinStatus.False
