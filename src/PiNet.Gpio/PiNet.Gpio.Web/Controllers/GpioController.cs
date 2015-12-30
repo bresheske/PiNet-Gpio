@@ -29,7 +29,7 @@ namespace PiNet.Gpio.Web.Controllers
         public ActionResult Toggle()
         {
             // mono sucks ass when it comes to autobinding.
-            var idstr = Request.Form["id"];
+            var idstr = Request.QueryString["id"];
             int id;
             if (string.IsNullOrWhiteSpace(idstr) || !int.TryParse(idstr, out id))
                 return null;
