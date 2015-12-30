@@ -29,12 +29,14 @@ namespace PiNet.Gpio.Web.Controllers
         public ActionResult Toggle(int id)
         {
             var manager = new PinManager();
-            var status = manager.Read(PinType.GPIO21);
+            var status = manager.Read(PinType.GPIO23);
             var write = false;
             if (status == PinStatus.False || status == PinStatus.UnExported)
                 write = true;
-            manager.Write(PinType.GPIO21, write);
-            return Json(new { id = 21, status = manager.Read(PinType.GPIO23).ToString() }, JsonRequestBehavior.AllowGet);
+            if (status == PinStatus.UnExported)
+                manager.Export(PinType.GPIO23);
+            manager.Write(PinType.GPIO23, write);
+            return Json(new { id = 23, status = manager.Read(PinType.GPIO23).ToString() }, JsonRequestBehavior.AllowGet);
         }
     }
 }
