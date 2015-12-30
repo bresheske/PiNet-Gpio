@@ -38,7 +38,8 @@ namespace PiNet.Console
                             CleanAll(manager);
                         else if (commandtype == "p")
                             Pause(command);
-
+                        else if (commandtype == "r")
+                            Read(manager, command);
                     }
                 }
                 catch (Exception)
@@ -55,8 +56,22 @@ namespace PiNet.Console
             System.Console.WriteLine("  e <PinID>: Exports a Pin.");
             System.Console.WriteLine("  u <PinID>: UnExports a Pin.");
             System.Console.WriteLine("  w <PinID> <1/0>: Writes a value to a Pin. 1 or 0 values allowed.");
-            System.Console.WriteLine("  c: Cleans all pins for this session.");
+            System.Console.WriteLine("  r <PinID>: Reads current value of GPIO Pin.");
             System.Console.WriteLine("  p <millis>: Pauses input for millis (for file-based input).");
+            System.Console.WriteLine("  c: Cleans all pins for this session.");
+        }
+
+        public static void Read(PinManager manager, string command)
+        {
+            var split = command.Split();
+            if (split.Count() != 2)
+                return;
+            var pinnum = split[1];
+            PinType pintype;
+            if (!Enum.TryParse<PinType>("GPIO" + pinnum, out pintype))
+                return;
+            var result = manager.Read(pintype);
+            System.Console.WriteLine("{0}:{1}", pintype.ToString(), result.ToString());
         }
 
         public static void Pause(string command)
