@@ -75,7 +75,6 @@ namespace PiNet.Gpio
             proc.StartInfo.FileName = "/bin/bash";
             proc.StartInfo.Arguments = $"-c \"echo {text} > {folder}\"";
             proc.StartInfo.UseShellExecute = true;
-            Console.WriteLine($"Executing: {proc.StartInfo.FileName} {proc.StartInfo.Arguments}");
             proc.Start();
             proc.WaitForExit();
         }
