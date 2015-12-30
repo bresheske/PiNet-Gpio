@@ -21,8 +21,6 @@ namespace PiNet.Gpio
 
         public void Export(PinType pin)
         {
-            if (_activepins.Contains(pin))
-                return;
             var folder = string.Format("{0}export", GPIO_FOLDER);
             Execute(folder, pin.ToString().Substring(4));
             _activepins.Add(pin);
@@ -30,8 +28,6 @@ namespace PiNet.Gpio
 
         public void UnExport(PinType pin)
         {
-            if (!_activepins.Contains(pin))
-                return;
             var folder = string.Format("{0}unexport", GPIO_FOLDER);
             Execute(folder, pin.ToString().Substring(4));
             _activepins.Remove(pin);
@@ -39,8 +35,6 @@ namespace PiNet.Gpio
 
         public void Write(PinType pin, bool on)
         {
-            if (!_activepins.Contains(pin))
-                return;
             var val = on ? 1 : 0;
             var folder = string.Format("{0}gpio{1}/direction", GPIO_FOLDER, pin.ToString().Substring(4));
             Execute(folder, "out");
