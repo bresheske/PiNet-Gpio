@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    @model PiNet.Gpio.Web.Models.PinsModel
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        @{ var pin18 = Model.Pins.First(x => x.Pin == PiNet.Gpio.PinType.GPIO18); }
+        
+        <a href="@Url.Action("Toggle", new { id = 18 })">
+            <span class="fa fa-power-off fa-5x" style="color:@(pin18.Status == PiNet.Gpio.PinStatus.True ? "F00" : "00F")"></span>
+        </a>
+    </div>
+</div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PiNet.Gpio.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,16 +14,16 @@ namespace PiNet.Gpio.Web.Controllers
         {
             using (var manager = new PinManager())
             {
-                var pins = new
+                var pins = new PinsModel()
                 {
-                    pins = new []
+                    Pins = new List<PinState>()
                     {
-                        new { id = 18, status = manager.Read(PinType.GPIO18).ToString() },
-                        new { id = 23, status = manager.Read(PinType.GPIO23).ToString() },
+                        new PinState() { Pin = PinType.GPIO18, Status = manager.Read(PinType.GPIO18) },
+                        new PinState() { Pin = PinType.GPIO23, Status = manager.Read(PinType.GPIO23) },
                     }
                 };
-
-                return Json(pins, JsonRequestBehavior.AllowGet);
+                
+                return View(pins);
             }
         }
 
@@ -47,7 +48,9 @@ namespace PiNet.Gpio.Web.Controllers
             if (status == PinStatus.UnExported)
                 manager.Export(pin);
             manager.Write(pin, write);
-            return Json(new { id = 23, previousstatus = status.ToString(), status = manager.Read(pin).ToString(), writeattempt = write.ToString() }, JsonRequestBehavior.AllowGet);
+
+            return RedirectToAction("Index");
+            //return Json(new { id = 23, previousstatus = status.ToString(), status = manager.Read(pin).ToString(), writeattempt = write.ToString() }, JsonRequestBehavior.AllowGet);
         }
     }
 }
