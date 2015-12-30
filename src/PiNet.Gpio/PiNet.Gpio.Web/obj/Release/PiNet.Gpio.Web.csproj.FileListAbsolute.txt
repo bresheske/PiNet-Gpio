@@ -15,12 +15,14 @@ C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\PiNet.Gpio.Web.dll
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\PiNet.Gpio.Web.pdb
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\PiNet.Gpio.dll
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\System.Web.Helpers.dll
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\System.Web.Mvc.dll
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\System.Web.Razor.dll
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\System.Web.Webpages.Deployment.dll
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\System.Web.Webpages.dll
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\System.Web.Webpages.Razor.dll
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\PiNet.Gpio.pdb
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\System.Web.Razor.xml
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\System.Web.Webpages.xml
@@ -31,5 +33,3 @@ C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\System.Web.Mvc.xml
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\obj\Release\PiNet.Gpio.Web.csprojResolveAssemblyReference.cache
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\obj\Release\PiNet.Gpio.Web.dll
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\obj\Release\PiNet.Gpio.Web.pdb
-C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\PiNet.Gpio.dll
-C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio.Web\bin\PiNet.Gpio.pdb

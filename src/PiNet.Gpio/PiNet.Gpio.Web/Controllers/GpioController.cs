@@ -26,8 +26,14 @@ namespace PiNet.Gpio.Web.Controllers
             }
         }
 
-        public ActionResult Toggle(int id)
+        public ActionResult Toggle()
         {
+            // mono sucks ass when it comes to autobinding.
+            var idstr = Request.Form["id"];
+            int id;
+            if (string.IsNullOrWhiteSpace(idstr) || !int.TryParse(idstr, out id))
+                return null;
+            
             var manager = new PinManager();
             var status = manager.Read(PinType.GPIO23);
             var write = false;
