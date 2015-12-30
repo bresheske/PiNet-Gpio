@@ -2,3 +2,4 @@ C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio\bin\Debug\PiNet.Gpio.dll
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio\bin\Debug\PiNet.Gpio.pdb
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio\obj\Debug\PiNet.Gpio.dll
 C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio\obj\Debug\PiNet.Gpio.pdb
+C:\projects\PiNet-Gpio\src\PiNet.Gpio\PiNet.Gpio\obj\Debug\PiNet.Gpio.csprojResolveAssemblyReference.cache

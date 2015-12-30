@@ -75,6 +75,7 @@ namespace PiNet.Gpio
 
         private void Execute(string folder, string text)
         {
+            Console.WriteLine("Executing:'{0}', '{1}'", folder, text);
             File.WriteAllText(folder, text);
         }
 
