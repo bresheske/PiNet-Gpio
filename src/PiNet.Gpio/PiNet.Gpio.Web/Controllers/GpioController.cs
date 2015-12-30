@@ -25,5 +25,16 @@ namespace PiNet.Gpio.Web.Controllers
                 return Json(pins, JsonRequestBehavior.AllowGet);
             }
         }
+
+        public ActionResult Toggle(int id)
+        {
+            var manager = new PinManager();
+            var status = manager.Read(PinType.GPIO21);
+            var write = false;
+            if (status == PinStatus.False || status == PinStatus.UnExported)
+                write = true;
+            manager.Write(PinType.GPIO21, write);
+            return Json(new { id = 21, status = manager.Read(PinType.GPIO23).ToString() }, JsonRequestBehavior.AllowGet);
+        }
     }
 }
