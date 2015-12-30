@@ -33,16 +33,21 @@ namespace PiNet.Gpio.Web.Controllers
             int id;
             if (string.IsNullOrWhiteSpace(idstr) || !int.TryParse(idstr, out id))
                 return null;
-            
+
+            PinType pin;
+            idstr = id.ToString("00");
+            if (!Enum.TryParse<PinType>($"GPIO{idstr}", out pin))
+                return null;
+
             var manager = new PinManager();
-            var status = manager.Read(PinType.GPIO23);
+            var status = manager.Read(pin);
             var write = false;
             if (status == PinStatus.False || status == PinStatus.UnExported)
                 write = true;
             if (status == PinStatus.UnExported)
-                manager.Export(PinType.GPIO23);
-            manager.Write(PinType.GPIO23, write);
-            return Json(new { id = 23, previousstatus = status.ToString(), status = manager.Read(PinType.GPIO23).ToString(), writeattempt = write.ToString() }, JsonRequestBehavior.AllowGet);
+                manager.Export(pin);
+            manager.Write(pin, write);
+            return Json(new { id = 23, previousstatus = status.ToString(), status = manager.Read(pin).ToString(), writeattempt = write.ToString() }, JsonRequestBehavior.AllowGet);
         }
     }
 }
