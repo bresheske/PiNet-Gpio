@@ -78,8 +78,8 @@ namespace PiNet.Gpio
         {
             var proc = new Process();
             proc.EnableRaisingEvents = false;
-            proc.StartInfo.FileName = "echo";
-            proc.StartInfo.Arguments = $"{text} > {folder}";
+            proc.StartInfo.FileName = "/bin/bash";
+            proc.StartInfo.Arguments = $"-c \"echo {text} > {folder}\"";
             Console.WriteLine($"Executing: {proc.StartInfo.FileName} {proc.StartInfo.Arguments}");
             proc.Start();
             proc.WaitForExit();
