@@ -54,6 +54,7 @@ namespace PiNet.Gpio
             try
             {
                 var data = File.ReadAllText(folder);
+                System.Console.WriteLine("DATA:'{0}'", data);
                 response = data == "0"
                     ? PinStatus.False
                     : PinStatus.True;
