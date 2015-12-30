@@ -42,7 +42,7 @@ namespace PiNet.Gpio.Web.Controllers
             if (status == PinStatus.UnExported)
                 manager.Export(PinType.GPIO23);
             manager.Write(PinType.GPIO23, write);
-            return Json(new { id = 23, status = manager.Read(PinType.GPIO23).ToString() }, JsonRequestBehavior.AllowGet);
+            return Json(new { id = 23, previousstatus = status.ToString(), status = manager.Read(PinType.GPIO23).ToString() }, JsonRequestBehavior.AllowGet);
         }
     }
 }
