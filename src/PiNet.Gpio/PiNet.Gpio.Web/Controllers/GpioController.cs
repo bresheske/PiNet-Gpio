@@ -23,7 +23,7 @@ namespace PiNet.Gpio.Web.Controllers
                     }
                 };
                 
-                return View(pins);
+                return Json(pins);
             }
         }
 
@@ -49,8 +49,7 @@ namespace PiNet.Gpio.Web.Controllers
                 manager.Export(pin);
             manager.Write(pin, write);
 
-            return RedirectToAction("Index");
-            //return Json(new { id = 23, previousstatus = status.ToString(), status = manager.Read(pin).ToString(), writeattempt = write.ToString() }, JsonRequestBehavior.AllowGet);
+            return null;
         }
     }
 }
